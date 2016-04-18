@@ -36,14 +36,6 @@ double coord_2d_dist(const coord_2d_t* a, const coord_2d_t* b){
 
 }
 
- double coord_2d_area_triangle(const coord_2d_t *a, const
- coord_2d_t *b, const coord_2d_t *c)
- {
- double coordinate_1 = a->x((b->y)-(c->y));
- double coordinate_2 = b->x((c->y)-(a->y));
- double coordinate_3 = c->x((a->y)-(b->y));
- double area_triangle = (coordinate_1+coordinate_2+coordinate_3)/2;
- }
 
 bool coord_2d_eq(const coord_2d_t* a, const coord_2d_t* b){
 
@@ -78,3 +70,15 @@ void coord_2d_midpoint(coord_2d_t* mid, const coord_2d_t* a, const coord_2d_t* b
     mid->y = ((a->y + b->y) / 2.0 );
 
 }
+
+double coord_2d_area_triangle(const coord_2d_t *a, const coord_2d_t *b, const coord_2d_t *c)
+ {
+ double Ax = a->x;
+ double Ay = a->y;
+ double Bx = b->x;
+ double By = b->y;
+ double Cx = c->x;
+ double Cy = c->y;
+ double area_triangle = abs((Ax*(By-Cy)+Bx*(Cy-Ay)+Cx*(Ay-By))/2);
+ return area_triangle;
+ }
